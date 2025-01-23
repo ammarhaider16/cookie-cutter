@@ -6,9 +6,6 @@
       "activeTab",
       "scripting"
     ],
-    "background": {
-      "service_worker": "scripts/service-worker.js"
-    },
     "action": {
       "default_title": "Cookie Cutter",
       "default_popup":"popup.html",
