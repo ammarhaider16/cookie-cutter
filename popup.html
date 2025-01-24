@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Cutter</title>
-
-    <script src = "scripts/popup.js" type="module"></script>
+    <link rel="stylesheet" href="styles/popup.css">
+    <script type="module" src="scripts/popup.js"></script>
 </head>
 <body>
-    <h1>Welcome to Cookie Cutter</h1>
-    <p>We will help you spot cookies.</p>
+    <h1>Cookie Cutter</h1>
+    <p class = "byline">Demystify cookies for this page?</p>
 
-    <button id="testAPICallButton"> testAPICall() </button>
+    <button id="analyzeCookiesButton">Analyze</button>
 
-    <button id="showCookiesButton"> showCookies() </button>
+    <div class="result-container" id="resultContainer">
+        <div id="cookieCount"></div>
+        <div id="cookiePurpose"></div>
+        <div id="cookieConcern"></div>
+    </div>
 
-    <a target="_blank" href="https://icons8.com/icon/107442/cookie">Cookie</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    <footer>
+        <p style="font-size: xx-small; margin-bottom: 0.1rem;"><a target="_blank" href="https://icons8.com/icon/107442/cookie">Cookie</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+    </footer>
 </body>
 </html>

@@ -1,13 +1,13 @@
 const apiKey = chrome.runtime.getManifest().env.GEMINI_API_KEY;
 
-export const testAPICall = async () => {
+export const analyzeCookiesWithGemini = async (cookies) => {
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
   const data = {
     systemInstruction: {
       parts: [
         {
-          text: "This is a test message. Keep response limited to 100 words.",
+          text: "The text will be a string of browser cookies active on a particular webpage, separated by a semi-colon. Analyze the cookies in the array, describing what the cookies are doing and whether the cookies are safe or whether there is a concerning number of third-party cookies tracking user data. Return a two-part semicolon-separated string which must be formatted as follows: '<Less than 100 word description of the functions of cookies>;<Less than 100 word description of whether the browser cookies on the webpage are safe>'. There should be no other semi-colons in the string.",
         },
       ],
     },
@@ -15,7 +15,7 @@ export const testAPICall = async () => {
       {
         parts: [
           {
-            text: "Explain how AI works.",
+            text: cookies,
           },
         ],
       },
