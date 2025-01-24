@@ -1,12 +1,14 @@
+import { testAPICall } from "./api.js";
+
 // This script executes when the extension popup has been rendered.
 document.addEventListener("DOMContentLoaded", () => {
-  const injectLogButton = document.getElementById("injectLogButton");
+  const testAPICallButton = document.getElementById("testAPICallButton");
 
   const showCookiesButton = document.getElementById("showCookiesButton");
 
   console.log("Buttons found, adding event listeners.");
 
-  injectLogButton.addEventListener("click", testInjectLog);
+  testAPICallButton.addEventListener("click", testAPICall);
 
   showCookiesButton.addEventListener("click", showCookies);
 });
@@ -17,21 +19,6 @@ const getCurrentTab = (callback) => {
   chrome.tabs.query(queryOptions, ([tab]) => {
     if (chrome.runtime.lastError) console.error(chrome.runtime.lastError);
     callback(tab);
-  });
-};
-
-// This is a test script injection.
-const testInjectLog = () => {
-  console.log("Received log injection request.");
-  getCurrentTab((tab) => {
-    if (tab) {
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: () => console.log("This is a test injection."),
-      });
-    } else {
-      console.log("No tab found!");
-    }
   });
 };
 
