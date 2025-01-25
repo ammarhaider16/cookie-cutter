@@ -10,11 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const onClickAnalyzeCookies = async () => {
+  // Hide the button and initial text
+  document.querySelector(".intro-container").style.display = "none";
+
+  const loadingContainer = document.querySelector(".loading-container");
+  loadingContainer.style.display = "flex";
+
   const [cookieCount, purpose, safety] = await analyzeCookies();
 
-  // Hide the button and initial text
-  document.querySelector("p").style.display = "none";
-  document.getElementById("analyzeCookiesButton").style.display = "none";
+  loadingContainer.style.display = "none";
 
   // Show the results container
   const resultContainer = document.getElementById("resultContainer");
@@ -22,14 +26,14 @@ const onClickAnalyzeCookies = async () => {
 
   // Update components with example data
   document.getElementById(
-    "cookieCount"
-  ).textContent = `Cookies found: ${cookieCount}`;
+    "cookie-count-container"
+  ).innerHTML = `<p class="cookie-count">${cookieCount} cookies found</p>`;
   document.getElementById(
-    "cookiePurpose"
-  ).innerHTML = `\nWhat are cookies on this page doing?\n<p>${purpose}</p>`;
+    "cookie-purpose-container"
+  ).innerHTML = `<p class="result-heading">what are cookies on this page doing?</p><p>\n${purpose}</p>`;
   document.getElementById(
-    "cookieConcern"
-  ).innerHTML = `\nShould I be concerned?\n<p>${safety}</p>`;
+    "cookie-concern-container"
+  ).innerHTML = `<p class="result-heading">should i be concerned?</p><p>\n${safety}</p>`;
 };
 
 // This function executes the callback on the tabs.Tab instance that is last active. Will not work with Chrome DevTools or "chrome://" prages are the last active tabs.

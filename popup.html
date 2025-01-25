@@ -4,23 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Cutter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/popup.css">
     <script type="module" src="scripts/popup.js"></script>
 </head>
 <body>
-    <h1>Cookie Cutter</h1>
-    <p class = "byline">Demystify cookies for this page?</p>
+    <div class = "header-container">
+        <h1>Cookie Cutter</h1>
+        <img src="images/default_icon.png" alt="cookie-icon" class="icon">
+    </div>
+    <div class = "intro-container"> 
+    <p class = "byline">demystify cookies for this page?</p>
+    <button id="analyzeCookiesButton">
+        <div class="flex-space-between">
+            <img src="images/sparkling_icon.png" alt="sparkling-icon" class="sparkling-icon">
+            <p>Analyze</p>
+        </div>
+        </button>
+    </div>
 
-    <button id="analyzeCookiesButton">Analyze</button>
+    <div class="loading-container">
+        <p class="byline">analyzing</p>
+        <div class="loader"></div>
+    </div>
+    
 
     <div class="result-container" id="resultContainer">
-        <div id="cookieCount"></div>
-        <div id="cookiePurpose"></div>
-        <div id="cookieConcern"></div>
+        <div id="cookie-count-container"></div>
+        <div id="cookie-purpose-container"></div>
+        <div id="cookie-concern-container"></div>
     </div>
 
     <footer>
-        <p style="font-size: xx-small; margin-bottom: 0.1rem;"><a target="_blank" href="https://icons8.com/icon/107442/cookie">Cookie</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+        <p class="footer-text">© Ammar Haider</p>
+        <p class="footer-text">Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
     </footer>
 </body>
 </html>

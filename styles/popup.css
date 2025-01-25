@@ -1,18 +1,25 @@
 /* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 1rem;
     background-color: #EADDCA;
     color: #333;
     width: 90vw;
     max-width: 400px;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* Heading Styles */
 h1 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
 }
 
 /* Button Styles */
@@ -20,36 +27,106 @@ button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 0.7rem 1.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
+    font-weight: 600;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+.flex-space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.sparkling-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
 
 .byline {
     margin-bottom: 1rem;
     line-height: 1.5;
+    font-size: 1rem;
 }
 
-/* Results Container */
-.result-container {
-    margin-top: 1rem;
-    display: none;
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem; 
 }
 
-.result-container > div {
-    margin-bottom: 1rem;
+.intro-container {
+    align-items: center;
+    text-align: center;
 }
+
+
+.cookie-count {
+    font-weight: 800;
+    font-size: medium;
+    color: #4CAF50;;
+}
+
+.result-heading {
+    font-weight: bold;
+    font-size: medium;
+}
+
 
 /* Footer Styles */
 footer {
     margin-top: 2rem;
     font-size: 0.8rem;
-    text-align: center;
     color: #777;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 90px;
+    height: 14px;
+    --c:#4CAF50 92%,#0000;
+    background: 
+      radial-gradient(circle 7px at bottom,var(--c)) 0 0,
+      radial-gradient(circle 7px at top   ,var(--c)) 0 100%;
+    background-size: calc(100%/4) 50%;
+    background-repeat: repeat-x;
+    animation: l11 1s infinite;
+  }
+  @keyframes l11 {
+      80%,100% {background-position: calc(100%/3) 0,calc(100%/-3) 100%}
+  }
+
+  .loading-container {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Results Container */
+.result-container {
+    margin-top: 1rem;
+    display: none;
+}
+
+.footer-text {
+    font-size: xx-small; 
+    margin-bottom: 0;
+    margin-top: 0;
 }
